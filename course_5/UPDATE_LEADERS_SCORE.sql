@@ -1,0 +1,44 @@
+--#SET TERMINATOR @
+
+CREATE OR REPLACE PROCEDURE UPDATE_LEADERS_SCORE(IN in_School_ID INT, IN in_Leader_Score INT)
+
+LANGUAGE SQL
+MODIFIES SQL DATA
+
+BEGIN
+
+	DECLARE new_Leaders_Icon VARCHAR(11);
+	
+	DECLARE SQLCODE INTEGER DEFAULT 0;
+	DECLARE retcode INTEGER DEFAULT 0;
+	DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
+	SET retcode = SQLCODE;
+	
+	UPDATE CHICAGO_PUBLIC_SCHOOLS 
+	SET LEADERS_SCORE = in_Leader_Score
+	WHERE SCHOOL_ID = in_School_ID;
+	
+	IF in_Leader_Score BETWEEN 80 AND 99
+		THEN SET new_Leaders_Icon = 'Very strong';
+		ELSEIF in_Leader_Score BETWEEN 60 AND 79
+		THEN SET new_Leaders_Icon = 'Strong';
+		ELSEIF in_Leader_Score BETWEEN 40 AND 59
+		THEN SET new_Leaders_Icon = 'Average';
+		ELSEIF in_Leader_Score BETWEEN 20 AND 39
+		THEN SET new_Leaders_Icon = 'Weak';
+		ELSEIF in_Leader_Score BETWEEN 0 AND 19
+		THEN SET new_Leaders_Icon = 'Very weak';
+	END IF;
+	
+	UPDATE CHICAGO_PUBLIC_SCHOOLS
+	SET LEADERS_ICON = new_Leaders_Icon
+	WHERE SCHOOL_ID = in_School_ID;
+			
+	IF in_Leader_Score BETWEEN 0 AND 99
+		THEN 
+			COMMIT WORK;
+		ELSE 
+			ROLLBACK WORK;
+	END IF;
+END
+@
