@@ -1,0 +1,8 @@
+SELECT COUNT(*) FROM sales_data;
+
++----------+
+| COUNT(*) |
++----------+
+|     2605 |
++----------+
+1 row in set (0.01 sec)

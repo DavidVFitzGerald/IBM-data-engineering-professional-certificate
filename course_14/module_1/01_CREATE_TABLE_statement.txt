@@ -1,0 +1,9 @@
+CREATE TABLE sales_data (
+	product_id INT,
+	customer_id INT,
+	price INT,
+	quantity INT,
+	timestamp TIMESTAMP
+);
+
+Query OK, 0 rows affected (0.04 sec)
