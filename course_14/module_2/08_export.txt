@@ -1,0 +1,9 @@
+mongoexport --host="172.21.217.205" --port=27017 \
+            --username="root" --password="t54fvem0kmDGxAkGcvXzTZVL" \
+            --authenticationDatabase="admin" \
+            --db="catalog" --collection="electronics" \
+            --fields="_id,type,model" \
+            --type=csv \
+            --out="electronics.csv"
+2026-05-14T08:49:54.481-0400    connected to: mongodb://172.21.217.205:27017/
+2026-05-14T08:49:54.489-0400    exported 438 records

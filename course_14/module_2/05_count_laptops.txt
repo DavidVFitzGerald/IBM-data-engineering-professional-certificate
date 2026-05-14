@@ -1,0 +1,2 @@
+db.electronics.aggregate([{ $match: { "type": "laptop" }}, { $count: "count" }]) 
+[ { count: 389 } ]

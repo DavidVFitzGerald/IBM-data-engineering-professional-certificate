@@ -1,0 +1,2 @@
+db.electronics.aggregate([{ $match: { "type": "smart phone" }}, { $group: { _id: "$type", "average screen size": { $avg: "$screen size" } } }])
+[ { _id: 'smart phone', 'average screen size': 6 } ]

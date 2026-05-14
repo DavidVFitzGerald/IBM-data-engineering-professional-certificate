@@ -1,0 +1,8 @@
+mongoimport --host="172.21.217.205" --port=27017 \
+            --username="root" --password="t54fvem0kmDGxAkGcvXzTZVL" \
+            --authenticationDatabase="admin" \
+            --db="catalog" --collection="electronics" \
+            --file="catalog.json"
+2026-05-14T08:01:34.899-0400    connected to: mongodb://172.21.217.205:27017/
+2026-05-14T08:01:34.911-0400    438 document(s) imported successfully. 0 document(s) failed to import.
+2026-05-14T08:01:34.911-0400    438 document(s) imported successfully. 0 document(s) failed to import.

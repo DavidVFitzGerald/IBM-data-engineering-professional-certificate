@@ -1,0 +1,2 @@
+db.electronics.aggregate([{ $match: { "type": "smart phone", "screen size": 6 } }, { $count: "count" }] )
+[ { count: 8 } ]

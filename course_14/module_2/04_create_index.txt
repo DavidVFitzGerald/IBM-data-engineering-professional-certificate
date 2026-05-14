@@ -1,0 +1,2 @@
+db.electronics.createIndex({ "type": 1 })
+type_1
