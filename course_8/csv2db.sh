@@ -1,5 +1,4 @@
-¨# This script
-# Extracts data from /etc/passwd file into a CSV file.
+# This script extracts data from /etc/passwd file into a CSV file.
 
 # The csv data file contains the user name, user id and
 # home directory of each user account defined in /etc/passwd
